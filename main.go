@@ -1,4 +1,4 @@
-// helloworld: ソースファイルを読むだけで、そのプログラムが "HelloWorld!" だけを出力するかを判定する。
+// HelloWorldCLI: ソースファイルを読むだけで、そのプログラムが "HelloWorld!" だけを出力するかを判定する。
 //
 // 言語ごとに「確実に HelloWorld! だけを出力するプログラムの形」を表に書いておき、
 // ファイルがその形に丸ごと一致したときだけ合格にする。一致しないものは全部エラーにするので、
@@ -28,7 +28,7 @@ var tio string
 
 func main() {
 	if n := len(os.Args); n < 2 || n > 3 {
-		fmt.Fprintln(os.Stderr, "usage: helloworld <file> [language]")
+		fmt.Fprintln(os.Stderr, "usage: HelloWorldCLI <file> [language]")
 		os.Exit(2)
 	}
 	path := os.Args[1]

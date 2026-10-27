@@ -1,3 +1,3 @@
-module github.com/iiinno/helloworld
+module github.com/iiinno/HelloWorldCLI
 
 go 1.22

@@ -7,16 +7,16 @@
 A self-contained single-binary judge that decides, without running any external tool, whether a source file in one of 456 languages prints exactly `HelloWorld!`.
 
 ```console
-$ helloworld hello.cob
+$ HelloWorldCLI hello.cob
 HelloWorld!
 
-$ helloworld hello.py        # print("Hello World!")
+$ HelloWorldCLI hello.py        # print("Hello World!")
 error: not a program that prints exactly HelloWorld! (checked as Python)
 
-$ helloworld hello.ook       # Ook! で書いた HelloWorld!
+$ HelloWorldCLI hello.ook       # Ook! で書いた HelloWorld!
 HelloWorld!
 
-$ helloworld prog.txt python # 拡張子が違うときは言語を2つ目の引数で渡す
+$ HelloWorldCLI prog.txt python # 拡張子が違うときは言語を2つ目の引数で渡す
 HelloWorld!
 ```
 
@@ -25,10 +25,10 @@ HelloWorld!
 Go が入っていれば次の1行で入ります。
 
 ```sh
-go install github.com/iiinno/helloworld@latest
+go install github.com/iiinno/HelloWorldCLI@latest
 ```
 
-Go がなければ [Releases](https://github.com/iiinno/helloworld/releases) から OS に合うバイナリを1つ落とします。
+Go がなければ [Releases](https://github.com/iiinno/HelloWorldCLI/releases) から OS に合うバイナリを1つ落とします。
 
 ## しくみ
 
