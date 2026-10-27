@@ -1,2 +1,0 @@
-PRINT '(A)', 'HELLOWORLD!'
-END

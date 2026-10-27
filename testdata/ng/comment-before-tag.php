@@ -1,2 +1,0 @@
-# note
-<?php echo "HelloWorld!";

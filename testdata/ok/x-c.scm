@@ -1,0 +1,1 @@
+(display (list->string (reverse (string->list "!dlroWolleH"))))

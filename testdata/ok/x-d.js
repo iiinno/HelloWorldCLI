@@ -1,0 +1,1 @@
+console.log("!dlroWolleH".split("").reverse().join(""))

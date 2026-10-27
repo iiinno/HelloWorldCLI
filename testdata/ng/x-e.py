@@ -1,0 +1,1 @@
+print("".join(chr(c) for c in [72]))

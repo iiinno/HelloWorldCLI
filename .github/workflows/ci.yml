@@ -12,9 +12,10 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: stable
-      # 判定そのものは何にも頼らない。処理系はテストで見本を実際に動かして答え合わせするためだけに入れる。
-      - name: Install interpreters for TestRealOutput
+      # 判定そのものは何にも頼らない。処理系は、見本を本物でも動かして答え合わせするためだけに入れる。
+      - name: Install interpreters for TestAgreesWithRealInterpreters
         if: runner.os == 'Linux'
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ruby php-cli lua5.4 tcl zsh fish
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends guile-3.0 racket sbcl
+      - uses: denoland/setup-deno@v2
       - run: go vet ./...
       - run: go test -v ./...
