@@ -1,0 +1,567 @@
+手で書いた言語表。1 言語は次の形で書く。
+
+  == 名前 | 拡張子... | 旗... | 行コメントの頭...
+  型
+  ｜
+  別の型
+
+型は「確実に HelloWorld! だけを出力するプログラム」をそのまま書いたもの。記号の意味は main.go の compile にある。
+迷ったら型を狭くする。受け入れる書き方の多さより、合格させたものが本当にそう出力することを優先する。
+
+== C | c | free | //
+#include <stdio.h>
+int main(⟦void｜int argc, char **argv｜int argc, char *argv[]⟧) { ⟨puts("HelloWorld!");｜printf("HelloWorld!⟦\n⟧");｜fputs("HelloWorld!⟦\n⟧", stdout);⟩ ⟦return 0;⟧ }
+
+== C++ | cpp cc cxx c++ | free | //
+#include <iostream>
+int main(⟦void｜int argc, char **argv｜int argc, char *argv[]⟧) { std::cout << ⟨"HelloWorld!" ⟦<< ⟨std::endl｜'\n'｜"\n"⟩⟧｜"HelloWorld!\n"⟩; ⟦return 0;⟧ }
+｜
+#include <iostream>
+using namespace std; int main(⟦void｜int argc, char **argv｜int argc, char *argv[]⟧) { cout << ⟨"HelloWorld!" ⟦<< ⟨endl｜'\n'｜"\n"⟩⟧｜"HelloWorld!\n"⟩; ⟦return 0;⟧ }
+｜
+#include <⟨cstdio｜stdio.h⟩>
+int main(⟦void⟧) { ⟦std::⟧⟨puts("HelloWorld!");｜printf("HelloWorld!⟦\n⟧");⟩ ⟦return 0;⟧ }
+｜
+#include <print>
+int main(⟦void⟧) { std::⟨println("HelloWorld!");｜print("HelloWorld!⟦\n⟧");⟩ ⟦return 0;⟧ }
+
+== Objective-C | m | free | //
+#⟨include｜import⟩ <stdio.h>
+int main(⟦void｜int argc, char **argv｜int argc, const char *argv[]⟧) { ⟨puts("HelloWorld!");｜printf("HelloWorld!⟦\n⟧");⟩ ⟦return 0;⟧ }
+
+== C# | cs csx | free | //
+⟦using System;⟧ ⟨Console｜System.Console⟩.⟨WriteLine("HelloWorld!");｜Write("HelloWorld!⟦\n⟧");⟩
+｜
+⟦using System;⟧ ⟦namespace ◇;⟧ ⟦⟨public｜internal⟩ ⟧⟦static ⟧class ◇ { ⟦public ⟧static void Main(⟦string[] ◇⟧) { ⟨Console｜System.Console⟩.WriteLine("HelloWorld!"); } }
+｜
+⟦using System;⟧ namespace ◇ { ⟦⟨public｜internal⟩ ⟧⟦static ⟧class ◇ { ⟦public ⟧static void Main(⟦string[] ◇⟧) { ⟨Console｜System.Console⟩.WriteLine("HelloWorld!"); } } }
+
+== F# | fsx | free | //
+printfn "HelloWorld!"
+｜
+printf "HelloWorld!⟦\n⟧"
+｜
+⟨System.Console｜stdout⟩.WriteLine⟨ "HelloWorld!"｜("HelloWorld!")⟩
+
+== Visual Basic .NET | vb | i |
+⟦Imports System
+⟧Module ◇
+Sub Main()
+⟨Console｜System.Console⟩.WriteLine("HelloWorld!")
+End Sub
+End Module
+
+== Java | java | free | //
+⟨public class ◆｜class ◇⟩ { public static void main(⟨String[] ◇｜String... ◇｜String ◇[]｜final String[] ◇⟩) { System.out.⟨println("HelloWorld!")｜print("HelloWorld!⟦\n⟧")⟩; } }
+｜
+⟦public ⟧interface ◇ { static void main(String[] ◇) { System.out.println("HelloWorld!"); } }
+｜
+void main() { IO.println("HelloWorld!"); }
+
+== Kotlin | kt | free | //
+fun main(⟦◇: Array<String>⟧) { ⟨println("HelloWorld!")｜print("HelloWorld!⟦\n⟧")⟩⟦;⟧ }
+｜
+fun main(⟦◇: Array<String>⟧) = println("HelloWorld!")
+
+== Kotlin script | kts | free | //
+println("HelloWorld!")
+
+== Scala | scala sc | free | //
+@main def ◇()⟦: Unit⟧ = ⟨println("HelloWorld!")｜{ println("HelloWorld!") }⟩
+｜
+object ◇ extends App { println("HelloWorld!") }
+｜
+object ◇ { def main(◇: Array[String])⟦: Unit⟧ = ⟨println("HelloWorld!")｜{ println("HelloWorld!") }⟩ }
+
+== Groovy | groovy gvy | free | //
+println⟨ "HelloWorld!"｜ 'HelloWorld!'｜("HelloWorld!")｜('HelloWorld!')⟩
+
+== Clojure | clj cljc | free | ;
+(println "HelloWorld!")
+｜
+(print "HelloWorld!⟦\n⟧")
+
+== Python | py pyw python | indent | #
+print(⟨"HelloWorld!"｜'HelloWorld!'⟩⟦, end=⟨""｜''｜"\n"｜'\n'⟩⟧)
+｜
+import sys
+sys.stdout.write(⟨"HelloWorld!⟦\n⟧"｜'HelloWorld!⟦\n⟧'⟩)
+｜
+def main():
+    print(⟨"HelloWorld!"｜'HelloWorld!'⟩)
+⟦if __name__ == ⟨"__main__"｜'__main__'⟩:
+    ⟧main()
+｜
+if __name__ == ⟨"__main__"｜'__main__'⟩:
+    print(⟨"HelloWorld!"｜'HelloWorld!'⟩)
+
+== Python 2 | py2 | indent | #
+print ⟨"HelloWorld!"｜'HelloWorld!'⟩
+
+== Cython | pyx | indent | #
+print(⟨"HelloWorld!"｜'HelloWorld!'⟩)
+
+== Mojo | mojo 🔥 | indent | #
+⟨fn｜def⟩ main():
+    print("HelloWorld!")
+
+== JavaScript | js mjs cjs | | //
+console.log(⟨"HelloWorld!"｜'HelloWorld!'｜`HelloWorld!`⟩)⟦;⟧
+｜
+process.stdout.write(⟨"HelloWorld!⟦\n⟧"｜'HelloWorld!⟦\n⟧'｜`HelloWorld!⟦\n⟧`⟩)⟦;⟧
+
+== TypeScript | ts mts cts | | //
+console.log(⟨"HelloWorld!"｜'HelloWorld!'｜`HelloWorld!`⟩)⟦;⟧
+
+== CoffeeScript | coffee | | #
+console.log⟨ "HelloWorld!"｜ 'HelloWorld!'｜("HelloWorld!")｜('HelloWorld!')⟩
+
+== LiveScript | ls | | #
+console.log ⟨"HelloWorld!"｜'HelloWorld!'⟩
+
+== ReScript | res | free | //
+Js.log("HelloWorld!")
+｜
+Console.log("HelloWorld!")
+
+== ReasonML | re | free | //
+print_endline("HelloWorld!");
+
+== Ruby | rb | | #
+⟨puts｜$stdout.puts｜STDOUT.puts⟩⟨ "HelloWorld!"｜ 'HelloWorld!'｜("HelloWorld!")｜('HelloWorld!')⟩
+｜
+print⟨ "HelloWorld!⟦\n⟧"｜ 'HelloWorld!'｜("HelloWorld!⟦\n⟧")⟩
+
+== Crystal | cr | | #
+puts⟨ "HelloWorld!"｜("HelloWorld!")⟩
+
+== Perl | pl pm perl | free | #
+⟦use strict;⟧ ⟦use warnings;⟧ print⟨ "HelloWorld!⟦\n⟧"｜ 'HelloWorld!'｜("HelloWorld!⟦\n⟧")｜('HelloWorld!')⟩⟦;⟧
+｜
+⟦use strict;⟧ ⟦use warnings;⟧ ⟨use v5.⟨10｜12｜14｜16｜18｜20｜22｜24｜26｜28｜30｜32｜34｜36｜38｜40⟩;｜use feature ⟨'say'｜"say"｜qw(say)⟩;⟩ ⟦use strict;⟧ ⟦use warnings;⟧ say⟨ "HelloWorld!"｜ 'HelloWorld!'｜("HelloWorld!")⟩⟦;⟧
+
+== Raku | raku rakumod p6 pl6 | free | #
+⟨say｜put⟩⟨ "HelloWorld!"｜ 'HelloWorld!'｜("HelloWorld!")｜('HelloWorld!')⟩⟦;⟧
+｜
+print "HelloWorld!⟦\n⟧"⟦;⟧
+
+== PHP | php | free |
+<?php ⟨echo｜print⟩⟨ "HelloWorld!⟦\n⟧"｜ 'HelloWorld!'｜("HelloWorld!⟦\n⟧")⟩;
+
+== PHP (text) | php | exact |
+HelloWorld!
+｜
+<?php echo "HelloWorld!"; ?>
+｜
+<?= "HelloWorld!" ?>
+
+== Lua | lua | | --
+print⟨("HelloWorld!")｜('HelloWorld!')｜ "HelloWorld!"｜ 'HelloWorld!'⟩
+｜
+io.write⟨("HelloWorld!⟦\n⟧")｜('HelloWorld!')⟩
+
+== MoonScript | moon | | --
+print⟨ "HelloWorld!"｜("HelloWorld!")⟩
+
+== Teal | tl | | --
+print("HelloWorld!")
+
+== Fennel | fnl | free | ;
+(print "HelloWorld!")
+
+== Janet | janet | free | #
+(print "HelloWorld!")
+
+== Hy | hy | free | ;
+(print "HelloWorld!")
+
+== Go | go | | //
+package main
+import ⟨"fmt"｜(
+"fmt"
+)⟩
+func main() {
+fmt.⟨Println("HelloWorld!")｜Print("HelloWorld!⟦\n⟧")｜Printf("HelloWorld!⟦\n⟧")⟩
+}
+｜
+package main
+import ⟨"fmt"｜(
+"fmt"
+)⟩
+func main() { fmt.⟨Println("HelloWorld!")｜Print("HelloWorld!⟦\n⟧")｜Printf("HelloWorld!⟦\n⟧")⟩ }
+
+== Rust | rs | free | //
+fn main() { ⟨println!("HelloWorld!")｜print!("HelloWorld!⟦\n⟧")⟩⟦;⟧ }
+
+== Swift | swift | | //
+print("HelloWorld!")
+
+== Dart | dart | free | //
+⟦void ⟧main() { print(⟨"HelloWorld!"｜'HelloWorld!'⟩); }
+｜
+⟦void ⟧main() => print(⟨"HelloWorld!"｜'HelloWorld!'⟩);
+
+== D | d | free | //
+import std.stdio; void main() { ⟨writeln("HelloWorld!")｜write("HelloWorld!⟦\n⟧")｜writef("HelloWorld!⟦\n⟧")⟩; }
+
+== Nim | nim nims | | #
+echo⟨ "HelloWorld!"｜("HelloWorld!")⟩
+｜
+stdout.write⟨ "HelloWorld!⟦\n⟧"｜("HelloWorld!⟦\n⟧")⟩
+
+== Zig | zig | free | //
+const std = @import("std"); pub fn main() !void { try std.io.getStdOut().writer().print("HelloWorld!⟦\n⟧", .{}); }
+｜
+const std = @import("std"); pub fn main() !void { try std.io.getStdOut().writeAll("HelloWorld!⟦\n⟧"); }
+｜
+const std = @import("std"); pub fn main() !void { try std.fs.File.stdout().writeAll("HelloWorld!⟦\n⟧"); }
+
+== V | v | free | //
+println(⟨'HelloWorld!'｜"HelloWorld!"⟩)
+｜
+fn main() { println(⟨'HelloWorld!'｜"HelloWorld!"⟩) }
+
+== Odin | odin | | //
+package main
+import "core:fmt"
+main :: proc() {
+fmt.println("HelloWorld!")
+}
+｜
+package main
+import "core:fmt"
+main :: proc() { fmt.println("HelloWorld!") }
+
+== Hare | ha | free | //
+use fmt; export fn main() void = { fmt::println("HelloWorld!")!; };
+
+== C3 | c3 | free | //
+import std::io; fn void main() { io::printn("HelloWorld!"); }
+
+== Gleam | gleam | free | //
+import gleam/io pub fn main() { io.println("HelloWorld!") }
+
+== Ballerina | bal | free | //
+import ballerina/io; public function main() { io:println("HelloWorld!"); }
+
+== Haskell | hs | indent | --
+⟦module Main where
+⟧⟦main :: IO ()
+⟧main = ⟨putStrLn "HelloWorld!"｜putStr "HelloWorld!⟦\n⟧"｜putStrLn ("HelloWorld!")⟩
+
+== PureScript | purs | indent | --
+module Main where
+import Prelude
+import Effect.Console (log)
+main = log "HelloWorld!"
+
+== Idris | idr | indent | --
+main : IO ()
+main = putStrLn "HelloWorld!"
+
+== Lean 4 | lean | free | --
+def main : IO Unit := IO.println "HelloWorld!"
+
+== OCaml | ml | free |
+⟦let () = ⟧⟨print_endline "HelloWorld!"｜print_string "HelloWorld!⟦\n⟧"｜Printf.printf "HelloWorld!⟦\n⟧"⟩⟦;;⟧
+
+== Standard ML | sml | free |
+print "HelloWorld!⟦\n⟧"⟦;⟧
+
+== Koka | kk | free | //
+fun main() { println("HelloWorld!") }
+
+== Erlang (escript) | erl escript | free | %
+⟦#!/usr/bin/env escript⟧
+main(⟨_｜[]｜_Args⟩) -> io:⟨format｜fwrite⟩("HelloWorld!⟦~n⟧").
+
+== Elixir | ex exs | | #
+IO.puts⟨ "HelloWorld!"｜("HelloWorld!")⟩
+｜
+IO.write⟨ "HelloWorld!⟦\n⟧"｜("HelloWorld!⟦\n⟧")⟩
+
+== Common Lisp | lisp cl lsp | free | ;
+(⟨write-line "HelloWorld!"｜format t "HelloWorld!⟦~%⟧"｜princ "HelloWorld!"⟩)
+
+== Scheme | scm ss sls | free | ;
+(display "HelloWorld!")⟦ (newline)⟧
+
+== Racket | rkt | free |
+#lang racket⟦/base⟧
+⟨(displayln "HelloWorld!")｜(display "HelloWorld!")｜(printf "HelloWorld!⟦~n⟧")⟩
+
+== Emacs Lisp | el | free | ;
+(princ "HelloWorld!⟦\n⟧")
+
+== R | r R | free | #
+cat(⟨"HelloWorld!⟦\n⟧"｜'HelloWorld!⟦\n⟧'⟩)
+｜
+writeLines(⟨"HelloWorld!"｜'HelloWorld!'⟩)
+
+== Julia | jl | free | #
+println("HelloWorld!")
+｜
+print("HelloWorld!⟦\n⟧")
+
+== Octave / MATLAB | m | free | % #
+⟨disp｜puts｜printf｜fprintf⟩⟨("HelloWorld!")｜('HelloWorld!')⟩⟦;⟧
+｜
+⟨printf｜fprintf⟩⟨("HelloWorld!\n")｜('HelloWorld!\n')⟩⟦;⟧
+
+== Mercury | m | free | %
+:- module ◆. :- interface. :- import_module io. :- pred main(io::di, io::uo) is det. :- implementation. main(!IO) :- io.write_string("HelloWorld!⟦\n⟧", !IO).
+
+== Mathematica / Wolfram | wl wls | free |
+Print["HelloWorld!"]⟦;⟧
+
+== Fortran | f90 f95 f03 f08 f18 | i | !
+⟦program ◇
+⟧⟨print '(a)', ⟨"HelloWorld!"｜'HelloWorld!'⟩｜print "(a)", ⟨"HelloWorld!"｜'HelloWorld!'⟩｜write (*, '(a)') ⟨"HelloWorld!"｜'HelloWorld!'⟩｜write (*, "(a)") ⟨"HelloWorld!"｜'HelloWorld!'⟩⟩
+end⟦ program⟧
+
+== COBOL | cob cbl cobol | i indent | *
+       ⟨IDENTIFICATION｜ID⟩ DIVISION.
+       PROGRAM-ID. ◇.
+       PROCEDURE DIVISION.
+           DISPLAY ⟨"HelloWorld!"｜'HelloWorld!'⟩⟦.⟧
+           ⟦⟨STOP RUN｜GOBACK⟩.⟧
+
+== Ada | adb ada | free i | --
+with Ada.Text_IO; procedure ◆ is begin Ada.Text_IO.Put_Line ("HelloWorld!"); end⟦ ◆⟧;
+｜
+with Ada.Text_IO; use Ada.Text_IO; procedure ◆ is begin Put_Line ("HelloWorld!"); end⟦ ◆⟧;
+
+== Pascal | pas pp dpr lpr | free i | //
+⟦program ◇;⟧ begin ⟨writeln('HelloWorld!')｜write('HelloWorld!')⟩⟦;⟧ end.
+
+== Modula-2 | mod def | free |
+MODULE ◆; FROM ⟨InOut｜StrIO⟩ IMPORT WriteString, WriteLn; BEGIN WriteString("HelloWorld!"); WriteLn⟦;⟧ END ◆.
+
+== Oberon | ob obn Mod | free |
+MODULE ◆; IMPORT Out; BEGIN Out.String("HelloWorld!"); Out.Ln⟦;⟧ END ◆.
+
+== ALGOL 68 | a68 alg | free |
+⟦BEGIN⟧ print(("HelloWorld!", newline)) ⟦END⟧
+｜
+print("HelloWorld!")
+
+== Simula | sim | free i | !
+Begin OutText("HelloWorld!"); OutImage⟦;⟧ End⟦;⟧
+
+== Smalltalk (GNU) | st | free |
+⟨Transcript showCr: 'HelloWorld!'｜'HelloWorld!' displayNl｜Transcript show: 'HelloWorld!'; cr⟩⟦.⟧
+
+== Eiffel | e | free i | --
+class ◆ create make feature make do ⟨print ("HelloWorld!%N")｜io.put_string ("HelloWorld!%N")｜print ("HelloWorld!")⟩ end end
+
+== Forth | fs fth 4th forth | free i words | \
+⟨.(␣HelloWorld!)｜."␣HelloWorld!"⟩ ⟦cr⟧ ⟦bye⟧
+｜
+: ◇ ."␣HelloWorld!" ⟦cr⟧ ; ◇ ⟦bye⟧
+
+== Factor | factor | free words | !
+USE: io "HelloWorld!" print
+
+== PostScript | ps | free | %
+(HelloWorld!) ⟨print｜=⟩ ⟦quit⟧
+
+== Prolog (SWI) | pl pro prolog | free | %
+:- initialization(main, main). main :- ⟨write('HelloWorld!'), nl｜format("HelloWorld!~n")｜writeln('HelloWorld!')⟩.
+｜
+:- initialization(main). main :- ⟨write('HelloWorld!'), nl｜format("HelloWorld!~n")｜writeln('HelloWorld!')⟩, halt.
+｜
+:- ⟨write('HelloWorld!'), nl｜writeln('HelloWorld!')⟩, halt.
+
+== Tcl | tcl | | #
+puts⟨ "HelloWorld!"｜ {HelloWorld!}｜ HelloWorld!⟩
+
+== AWK | awk | free | #
+BEGIN { ⟨print "HelloWorld!"｜printf "HelloWorld!⟦\n⟧"｜printf("HelloWorld!⟦\n⟧")｜print("HelloWorld!")⟩⟦;⟧ }
+
+== bc | bc | free | #
+⟨print "HelloWorld!\n"｜"HelloWorld!\n"⟩ ⟦quit⟧
+
+== dc | dc | free | #
+[HelloWorld!]⟨p｜P⟩
+
+== Shell | sh bash zsh ksh dash mksh | | #
+⟨echo｜printf '%s\n'⟩⟨ HelloWorld!｜ "HelloWorld!"｜ 'HelloWorld!'⟩
+｜
+printf⟨ 'HelloWorld!⟦\n⟧'｜ "HelloWorld!⟦\n⟧"⟩
+
+== Z shell | zsh | | #
+print⟨ HelloWorld!｜ "HelloWorld!"｜ 'HelloWorld!'⟩
+
+== C shell | csh tcsh | | #
+echo⟨ HelloWorld!｜ 'HelloWorld!'⟩
+
+== fish | fish | | #
+echo⟨ HelloWorld!｜ "HelloWorld!"｜ 'HelloWorld!'⟩
+
+== Nushell | nu | | #
+print⟨ "HelloWorld!"｜ 'HelloWorld!'⟩
+
+== Elvish | elv | | #
+echo⟨ HelloWorld!｜ "HelloWorld!"｜ 'HelloWorld!'⟩
+
+== PowerShell | ps1 psm1 | i | #
+⟨Write-Output｜Write-Host｜echo⟩⟨ "HelloWorld!"｜ 'HelloWorld!'⟩
+｜
+⟨"HelloWorld!"｜'HelloWorld!'⟩
+
+== Batch | bat cmd | exact i |
+@echo HelloWorld!
+｜
+@echo off
+echo HelloWorld!
+
+== Make | mk mak | exact |
+all:
+	@echo HelloWorld!
+｜
+$(info HelloWorld!)
+all: ;
+｜
+$(info HelloWorld!)
+all:
+	@:
+
+== SQL (SQLite) | sql | free i | --
+SELECT 'HelloWorld!'⟦;⟧
+
+== Icon | icn | | #
+procedure main()
+write("HelloWorld!")
+end
+
+== SNOBOL4 | sno spt | indent | *
+␣ OUTPUT = 'HelloWorld!'
+END
+
+== REXX | rexx rex | free i |
+say ⟨"HelloWorld!"｜'HelloWorld!'⟩
+
+== Logo | logo lg | free i | ;
+print [HelloWorld!] ⟦bye⟧
+
+== BASIC (FreeBASIC / QBasic) | bas bi | i | '
+⟨PRINT｜?⟩ "HelloWorld!"
+
+== Rebol | reb r3 | free i | ;
+REBOL [] print "HelloWorld!"
+
+== Red | red | free i | ;
+Red [] print "HelloWorld!"
+
+== Ring | ring | free i | #
+see "HelloWorld!"⟦ + nl⟧
+｜
+? "HelloWorld!"
+
+== Io | io | free | //
+"HelloWorld!" ⟨println｜print⟩
+｜
+writeln("HelloWorld!")
+
+== Wren | wren | free | //
+System.print("HelloWorld!")
+
+== Squirrel | nut | free | //
+print("HelloWorld!⟦\n⟧")⟦;⟧
+
+== Pike | pike pmod | free | //
+int main() { write("HelloWorld!⟦\n⟧"); ⟦return 0;⟧ }
+
+== Vala | vala | free | //
+void main() { ⟨print｜stdout.printf⟩("HelloWorld!⟦\n⟧"); }
+
+== Fantom | fan | free | //
+class ◇ { static Void main() { echo("HelloWorld!") } }
+
+== Ceylon | ceylon | free | //
+⟦shared ⟧void run() { print("HelloWorld!"); }
+
+== Chapel | chpl | free | //
+writeln("HelloWorld!");
+
+== Pony | pony | indent | //
+actor Main
+  new create(env: Env) =>
+    env.out.print("HelloWorld!")
+
+== Boo | boo | | #
+print "HelloWorld!"
+
+== LOLCODE | lol lols | |
+HAI⟦ 1.2⟧
+VISIBLE "HelloWorld!"
+KTHXBYE
+
+== Rockstar | rock | i |
+⟨Say｜Shout｜Whisper｜Scream⟩ "HelloWorld!"
+
+== Unlambda | unl | exact |
+```````````.H.e.l.l.o.W.o.r.l.d.!i
+｜
+````````````.H.e.l.l.o.W.o.r.l.d.!ri
+
+== Befunge | b93 b98 befunge | exact |
+"!dlroWolleH">:#,_@
+｜
+55+"!dlroWolleH">:#,_@
+｜
+0"!dlroWolleH">:#,_@
+
+== Jelly | jelly | exact |
+“HelloWorld!⟦”⟧
+
+== Pyth | pyth | exact |
+"HelloWorld!⟦"⟧
+
+== Japt | japt | exact |
+"HelloWorld!"
+
+== BQN | bqn | free | #
+•Out "HelloWorld!"
+
+== APL | apl | free | ⍝
+⎕←'HelloWorld!'
+
+== Uiua | ua | free | #
+&p "HelloWorld!"
+
+== Assembly (NASM, Linux x86-64) | asm nasm | i | ;
+section .data
+msg db "HelloWorld!", 10
+section .text
+global _start
+_start:
+mov rax, 1
+mov rdi, 1
+mov rsi, msg
+mov rdx, 12
+syscall
+mov rax, 60
+xor rdi, rdi
+syscall
+
+== LLVM IR | ll | free | ;
+@str = ⟦private ⟧⟦unnamed_addr ⟧constant [12 x i8] c"HelloWorld!\00" declare i32 @puts(ptr) define i32 @main() { call i32 @puts(ptr @str) ret i32 0 }
+
+== Brainfuck | bf b brainfuck | bf |
+> < + - . , [ ]
+
+== Ook! | ook | bf |
+Ook.Ook? Ook?Ook. Ook.Ook. Ook!Ook! Ook!Ook. Ook.Ook! Ook!Ook? Ook?Ook!
+
+== Blub | blub | bf |
+Blub.Blub? Blub?Blub. Blub.Blub. Blub!Blub! Blub!Blub. Blub.Blub! Blub!Blub? Blub?Blub!
+
+== Alphuck | alphuck | bf |
+a c e i j o p s
+
+== Spoon | spoon | bf |
+010 011 1 000 001010 0010110 00100 0011
+
+== Pikalang | pokeball pikalang | bfw |
+pipi pichu pi ka pikachu pikapi pika chu
